@@ -101,7 +101,7 @@ cursor-pointer
 </Link>
 
               <a
-  href="/Tanmay_Kamtekar_Resume.pdf"
+  href="/Tanmay Kamtekar Resume.pdf"
   download
   className="
 inline-flex items-center justify-center gap-2
