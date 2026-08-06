@@ -1,7 +1,7 @@
 import {
   ScrollProgress,
   MouseGlow,
-  Button,
+  //Button,
   Navbar,
   Hero,
   TechStack,
@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="bg-slate-950 text-white overflow-x-hidden">
       <ScrollProgress />
-      <Button />
+      {/* <Button /> */}
       <MouseGlow />  
       <Navbar />
       <Hero />

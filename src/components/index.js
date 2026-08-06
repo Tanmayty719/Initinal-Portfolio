@@ -11,4 +11,3 @@ export { default as Contact } from "./Contact/Contact";
 export { default as Footer } from "./Footer/Footer";
 export { default as ScrollProgress } from "./ScrollProgress";
 export { default as MouseGlow } from "./MouseGlow";
-export { default as Button } from "./common/Button";
