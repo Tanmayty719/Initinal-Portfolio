@@ -3,16 +3,17 @@ import { TypeAnimation } from "react-type-animation";
 import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
 import { HiArrowRight } from "react-icons/hi";
 import profile from "../../assets/images/profile.png";
+import { Link } from "react-scroll";
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center pt-24 bg-slate-950"
+      className="min-h-[92vh] flex items-center pt-20 bg-slate-950"
     >
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 w-full">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
 
-        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-20 items-center">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
 
           {/* LEFT */}
 
@@ -39,12 +40,12 @@ const Hero = () => {
 </motion.div>
 
 
-            <h1 className="text-6xl font-black leading-tight">
+            <h1 className="text-5xl md:text-6xl xl:text-7xl font-black leading-[1.05]">
               Tanmay
               <br />
               Kamtekar
             </h1>
-            <div className="text-3xl mt-6 font-semibold text-sky-400">
+            <div className="text-2xl md:text-3xl mt-5 font-semibold text-sky-400 h-10">
 
               <TypeAnimation
                 sequence={[
@@ -61,7 +62,7 @@ const Hero = () => {
 
             </div>
 
-            <p className="text-slate-400 mt-8 text-lg leading-8 max-w-xl">
+            <p className="text-slate-400 mt-7 text-lg leading-8 max-w-lg">
 
               Passionate Full Stack Web Developer with experience
               building scalable web applications using React,
@@ -70,36 +71,41 @@ const Hero = () => {
 
             </p>
 
-            <div className="flex gap-5 mt-10">
+            <div className="flex flex-wrap gap-4 mt-10">
 
-                          <button className="
-inline-flex items-center gap-
+    <Link
+  to="contact"
+  smooth={true}
+  duration={500}
+  offset={-80}
+  className="
+inline-flex items-center justify-center gap-2
+w-[220px]
 px-7 py-4
 rounded-xl
 font-semibold
-border
-border-slate-700
-bg-slate-900/60
-backdrop-blur-md
+bg-sky-500
 text-white
 transition-all
 duration-300
-hover:border-sky-400
-hover:bg-slate-800
+hover:bg-sky-600
 hover:scale-105
 hover:-translate-y-1
-hover:shadow-[0_0_20px_rgba(56,189,248,0.20)]
+hover:shadow-[0_0_30px_rgba(56,189,248,0.35)]
 active:scale-95
+cursor-pointer
 "
- href="#contact"
-  variant="primary"
-  icon={<HiArrowRight />}
 >
+  <HiArrowRight />
   Get in Touch
-</button>
+</Link>
 
-              <button className="
-inline-flex items-center gap-
+              <a
+  href="/Tanmay_Kamtekar_Resume.pdf"
+  download
+  className="
+inline-flex items-center justify-center gap-2
+w-[220px]
 px-7 py-4
 rounded-xl
 font-semibold
@@ -117,17 +123,14 @@ hover:-translate-y-1
 hover:shadow-[0_0_20px_rgba(56,189,248,0.20)]
 active:scale-95
 "
-  href="/Tanmay Kamtekar resume.pdf"
-  download
-  variant="secondary"
-  icon={<FaDownload />}
 >
+  <FaDownload />
   Download Resume
-</button>
+</a>
 
             </div>
 
-            <div className="flex gap-5 mt-10">
+            <div className="flex flex-wrap gap-4 mt-10">
 
               <a href="https://github.com/Tanmayty719">
                 <FaGithub />
@@ -162,7 +165,7 @@ to-cyan-400/20 blur-[80px]" />
       repeat: Infinity,
       ease: "linear",
     }}
-    className="absolute w-[430px] h-[430px] rounded-full border-2 border-solid border-sky-500/30"
+    className="absolute w-[360px] h-[360px] rounded-full border-2 border-sky-500/25"
   />
 
   {/* Floating Image */}
@@ -177,7 +180,7 @@ to-cyan-400/20 blur-[80px]" />
     }}
     src={profile}
     alt="Tanmay Kamtekar"
-    className="relative z-10 w-[360px] md:w-[400px] rounded-full border-4 border-sky-400 shadow-[0_0_40px_rgba(56,189,248,0.35)]"
+    className="relative z-10 w-[290px] md:w-[330px] xl:w-[360px] rounded-full border-4 border-sky-400 shadow-[0_0_40px_rgba(56,189,248,0.35)]"
   />
 </motion.div>
 
