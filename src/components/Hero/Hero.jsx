@@ -72,31 +72,34 @@ const Hero = () => {
 
             <div className="flex gap-5 mt-10">
 
-              <Button 
-              className="
-inline-flex items-center gap-2
+                          <button className="
+inline-flex items-center gap-
 px-7 py-4
 rounded-xl
 font-semibold
-bg-sky-500
+border
+border-slate-700
+bg-slate-900/60
+backdrop-blur-md
 text-white
 transition-all
 duration-300
-hover:bg-sky-600
+hover:border-sky-400
+hover:bg-slate-800
 hover:scale-105
 hover:-translate-y-1
-hover:shadow-[0_0_30px_rgba(56,189,248,0.35)]
+hover:shadow-[0_0_20px_rgba(56,189,248,0.20)]
 active:scale-95
 "
-  href="#contact"
+ href="#contact"
   variant="primary"
   icon={<HiArrowRight />}
 >
   Get in Touch
-</Button>
+</button>
 
-              <Button className="
-inline-flex items-center gap-2
+              <button className="
+inline-flex items-center gap-
 px-7 py-4
 rounded-xl
 font-semibold
@@ -120,7 +123,7 @@ active:scale-95
   icon={<FaDownload />}
 >
   Download Resume
-</Button>
+</button>
 
             </div>
 
