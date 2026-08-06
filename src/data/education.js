@@ -1,0 +1,56 @@
+export const education = [
+  {
+    degree: "Master of Computer Applications",
+    specialization: "MCA",
+    institute: "",
+    duration: "2026 - Present",
+    status: "Currently Pursuing",
+    cgpa: "-",
+    subjects: [
+      "",
+    ],
+  },
+  {
+    degree: "Bachelor of Science",
+    specialization: "Computer Science",
+    institute: "Patkar Varde College",
+    duration: "2023 - 2026",
+    status: "Completed",
+    cgpa: "7.83 out of 10 ",
+    subjects: [
+      "Data Structures",
+      "DBMS",
+      "Operating Systems",
+      "Computer Networks",
+    ],
+  },
+  {
+    degree: "Higher Secondary Certificate (HSC)",
+    specialization: "Science",
+    institute: "VIVA College of Arts, Commerce and Science",
+    duration: "2021 - 2023",
+    status: "Completed",
+    cgpa: "55.17 %",
+    subjects: [
+      "Physics",
+      "Chemistry",
+      "Mathematics",
+      "Biology",
+      "Information Technology",
+    ],
+  },
+ {
+    degree: "Secondary School Certificate (SSC)",
+    specialization: "General Education",
+    institute: "National English High School",
+    duration: "2020 - 2021",
+    status: "Completed",
+    cgpa: "71.80 %",
+    subjects: [
+      "Mathematics",
+      "Science",
+      "English",
+      "Social Science",
+    ],
+  },
+];
