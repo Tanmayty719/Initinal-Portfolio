@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
 import { HiArrowRight } from "react-icons/hi";
-import Button from "../common/Button";
 import profile from "../../assets/images/profile.png";
 
 const Hero = () => {
