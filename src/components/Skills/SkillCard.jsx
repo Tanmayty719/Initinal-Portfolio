@@ -1,45 +1,128 @@
 import { motion } from "framer-motion";
 import { HiArrowUpRight } from "react-icons/hi2";
 
-const SkillCard = ({ skill }) => {
+const SkillCard = ({ skill, index = 0 }) => {
   const Icon = skill.icon;
 
   return (
     <motion.div
-      whileHover={{ y: -8 }}
-      transition={{ duration: 0.25 }}
-      className="group relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 p-6 hover:border-sky-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)]"
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{
+        duration: 0.5,
+        delay: index * 0.08,
+      }}
+      whileHover={{ y: -5 }}
+      className="
+        group
+        relative
+        overflow-hidden
+        rounded-2xl
+        border
+        border-white/[0.08]
+        bg-white/[0.025]
+        p-6
+        backdrop-blur-sm
+        transition-all
+        duration-300
+        hover:border-violet-400/30
+        hover:bg-white/[0.04]
+        hover:shadow-[0_18px_50px_rgba(0,0,0,0.2)]
+      "
     >
-      {/* Background Glow */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-sky-500/5 via-transparent to-cyan-500/5"></div>
+      {/* Hover glow */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-16
+          -top-16
+          h-32
+          w-32
+          rounded-full
+          bg-violet-500/[0.08]
+          blur-[55px]
+          opacity-0
+          transition
+          duration-500
+          group-hover:opacity-100
+        "
+      />
 
       <div className="relative z-10">
-        <div className="flex justify-between items-start">
-          <div className="w-14 h-14 rounded-2xl bg-slate-800 flex items-center justify-center group-hover:bg-sky-500 transition">
-            <Icon className="text-3xl text-sky-400 group-hover:text-white transition" />
+        {/* Top row */}
+        <div className="flex items-start justify-between">
+          <div
+            className="
+              flex
+              h-11
+              w-11
+              items-center
+              justify-center
+              rounded-xl
+              border
+              border-white/[0.08]
+              bg-white/[0.04]
+              text-violet-300
+              transition-all
+              duration-300
+              group-hover:border-violet-400/30
+              group-hover:bg-violet-500/10
+            "
+          >
+            <Icon className="text-xl" />
           </div>
 
-          <HiArrowUpRight className="text-xl text-slate-500 group-hover:text-sky-400 transition" />
+          <HiArrowUpRight
+            className="
+              text-lg
+              text-slate-600
+              transition-all
+              duration-300
+              group-hover:-translate-y-1
+              group-hover:translate-x-1
+              group-hover:text-violet-300
+            "
+          />
         </div>
 
-        <h3 className="text-2xl font-bold mt-6">
+        {/* Title */}
+        <h3 className="mt-6 text-xl font-semibold tracking-tight text-white">
           {skill.name}
         </h3>
 
-        <p className="text-slate-400 mt-4 leading-7">
+        {/* Description */}
+        <p className="mt-3 text-sm leading-6 text-slate-500">
           {skill.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mt-6">
-          {skill.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1 rounded-full bg-slate-800 text-sm text-slate-300"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+        {/* Tags */}
+        {skill.tags?.length > 0 && (
+          <div className="mt-5 flex flex-wrap gap-2">
+            {skill.tags.map((tag) => (
+              <span
+                key={tag}
+                className="
+                  rounded-md
+                  border
+                  border-white/[0.07]
+                  bg-white/[0.025]
+                  px-2.5
+                  py-1.5
+                  text-xs
+                  font-medium
+                  text-slate-400
+                  transition
+                  duration-300
+                  group-hover:border-white/[0.1]
+                "
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </motion.div>
   );

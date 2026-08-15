@@ -1,173 +1,237 @@
 import { motion } from "framer-motion";
 import {
   FaCode,
-  FaLaptopCode,
   FaBriefcase,
-  FaDatabase,
+  FaGraduationCap,
+  FaLayerGroup,
 } from "react-icons/fa";
 
 const stats = [
   {
-    icon: <FaLaptopCode className="text-4xl text-sky-400" />,
-    value: "12+",
-    title: "Technologies",
+    value: "3+",
+    label: "Featured Projects",
+    icon: FaCode,
   },
   {
-    icon: <FaCode className="text-4xl text-sky-400" />,
-    value: "2",
-    title: "Major Projects",
-  },
-  {
-    icon: <FaBriefcase className="text-4xl text-sky-400" />,
     value: "1",
-    title: "Internship",
+    label: "Client Internship",
+    icon: FaBriefcase,
   },
   {
-    icon: <FaDatabase className="text-4xl text-sky-400" />,
     value: "MERN",
-    title: "Stack",
+    label: "Primary Stack",
+    icon: FaLayerGroup,
+  },
+  {
+    value: "7.83",
+    label: "B.Sc. CGPI",
+    icon: FaGraduationCap,
   },
 ];
 
 const About = () => {
   return (
-    <section id="about" className="bg-slate-900 py-24">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+    <section
+      id="about"
+      className="relative overflow-hidden bg-[#0d0f14] py-24 sm:py-28"
+    >
+      {/* Background accents */}
+      <div className="pointer-events-none absolute -right-40 top-20 h-96 w-96 rounded-full bg-violet-500/[0.05] blur-[130px]" />
+
+      <div className="pointer-events-none absolute -left-40 bottom-0 h-96 w-96 rounded-full bg-cyan-400/[0.035] blur-[130px]" />
+
+      <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
+
+        {/* ================= HEADER ================= */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-5xl font-bold text-center"
+          className="mb-14"
         >
-          About Me
-        </motion.h2>
+          <div className="mb-4 flex items-center gap-3">
+            <span className="h-px w-10 bg-gradient-to-r from-violet-400 to-cyan-400" />
 
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center text-slate-400 mt-8 max-w-4xl mx-auto leading-8 text-lg"
-        >
-          I'm a passionate{" "}
-          <span className="text-sky-400 font-semibold">
-            Full Stack WEB Developer
-          </span>{" "}
-          who enjoys building responsive, scalable and user-focused web
-          applications.
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-300">
+              About Me
+            </span>
+          </div>
 
-          <br />
-          <br />
+          <h2 className="max-w-3xl text-4xl font-bold tracking-[-0.03em] text-white sm:text-5xl">
+            Building with curiosity,
+            <span className="block text-slate-500">
+              learning with purpose.
+            </span>
+          </h2>
+        </motion.div>
 
-          My experience includes developing real-time applications using React, Node.js, Express, MongoDB, JWT Authentication, Socket.IO, and Cloudinary. I am committed to continuous learning and currently expanding my expertise in modern web technologies, scalable application development, and industry best practices.
+        {/* ================= MAIN CONTENT ================= */}
 
-          <br />
-          <br />
+        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
 
-          During my internship at{" "}
-          <span className="text-white font-medium">
-            V-Arts Services Pvt. Ltd.
-          </span>
-          , I contributed to a live client project using WordPress,
-          Elementor and the Fancy Product Designer plugin, gaining
-          valuable real-world development experience.
-        </motion.p>
+          {/* LEFT — STORY */}
 
-        {/* Stats */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
-          {stats.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-              className="bg-slate-950 border border-slate-800 rounded-2xl p-8 text-center hover:border-sky-400 transition-all duration-300 hover:-translate-y-2"
-            >
-              <div className="flex justify-center mb-5">
-                {item.icon}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-lg leading-8 text-slate-300">
+              I'm a{" "}
+              <span className="font-semibold text-white">
+                Full Stack Web Developer
+              </span>{" "}
+              focused on building responsive, practical and user-focused web
+              applications.
+            </p>
+
+            <p className="mt-6 text-base leading-8 text-slate-400">
+              My primary stack is MERN, and I enjoy working across the
+              frontend and backend — from designing React interfaces to
+              building REST APIs, authentication systems and real-time
+              functionality with Socket.IO.
+            </p>
+
+            <p className="mt-6 text-base leading-8 text-slate-400">
+              During my internship at{" "}
+              <span className="font-medium text-white">
+                V-Arts Services Pvt. Ltd.
+              </span>
+              , I contributed to a live client website, working with
+              WordPress, Elementor, Fancy Product Designer, custom CSS,
+              debugging and frontend improvements.
+            </p>
+
+            <p className="mt-6 text-base leading-8 text-slate-400">
+              I'm continuously expanding my knowledge through projects,
+              hands-on development and learning modern software engineering
+              practices.
+            </p>
+
+            {/* Small principle */}
+
+            <div className="mt-8 flex items-center gap-3 border-l border-violet-400/40 pl-4">
+              <span className="h-2 w-2 rounded-full bg-violet-400" />
+
+              <p className="text-sm font-medium text-slate-300">
+                Build. Learn. Improve. Repeat.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* RIGHT — SNAPSHOT */}
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+            className="
+              rounded-3xl
+              border
+              border-white/[0.08]
+              bg-white/[0.025]
+              p-6
+              backdrop-blur-xl
+              sm:p-8
+            "
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+              Developer Snapshot
+            </p>
+
+            <div className="mt-7 space-y-6">
+
+              <div>
+                <p className="text-xs uppercase tracking-wider text-slate-600">
+                  Primary Focus
+                </p>
+
+                <p className="mt-2 text-lg font-semibold text-white">
+                  Full Stack Web Development
+                </p>
               </div>
 
-              <h3 className="text-4xl font-bold text-white">
-                {item.value}
-              </h3>
+              <div className="border-t border-white/[0.07] pt-6">
+                <p className="text-xs uppercase tracking-wider text-slate-600">
+                  Core Stack
+                </p>
 
-              <p className="text-slate-400 mt-3">
-                {item.title}
-              </p>
-            </motion.div>
-          ))}
+                <p className="mt-2 text-lg font-semibold text-white">
+                  React · Node.js · Express · MongoDB
+                </p>
+              </div>
+
+              <div className="border-t border-white/[0.07] pt-6">
+                <p className="text-xs uppercase tracking-wider text-slate-600">
+                  Real-World Experience
+                </p>
+
+                <p className="mt-2 text-lg font-semibold text-white">
+                  Live Client WordPress Project
+                </p>
+              </div>
+
+              <div className="border-t border-white/[0.07] pt-6">
+                <p className="text-xs uppercase tracking-wider text-slate-600">
+                  Current Goal
+                </p>
+
+                <p className="mt-2 text-lg font-semibold text-white">
+                  Grow as a Full Stack Developer
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-slate-800 my-20"></div>
+        {/* ================= STATS ================= */}
 
-        {/* Featured Work */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6 }}
+          className="mt-16 grid grid-cols-2 border-y border-white/[0.07] sm:grid-cols-4"
         >
-          <h3 className="text-3xl font-bold text-center mb-12">
-            Featured Work
-          </h3>
+          {stats.map((item, index) => {
+            const Icon = item.icon;
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Project 1 */}
-            <div className="bg-slate-950 rounded-2xl border border-slate-800 p-8 hover:border-sky-400 transition-all duration-300 hover:-translate-y-2">
-              <div className="text-5xl mb-5">🏆</div>
+            return (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.08,
+                }}
+                className="
+                  group
+                  border-r
+                  border-white/[0.07]
+                  px-5
+                  py-8
+                  last:border-r-0
+                  sm:px-6
+                "
+              >
+                <Icon className="text-sm text-violet-400 transition-transform duration-300 group-hover:-translate-y-1" />
 
-              <h4 className="text-2xl font-bold mb-4">
-                Auction Centrall
-              </h4>
+                <p className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                  {item.value}
+                </p>
 
-              <p className="text-slate-400 leading-7">
-                My flagship MERN Stack project featuring JWT
-                Authentication, Socket.IO real-time bidding,
-                Cloudinary image uploads, Admin Dashboard and
-                responsive UI.
-              </p>
-            </div>
-
-            {/* Project 2 */}
-            <div className="bg-slate-950 rounded-2xl border border-slate-800 p-8 hover:border-sky-400 transition-all duration-300 hover:-translate-y-2">
-              <div className="text-5xl mb-5">💼</div>
-
-              <h4 className="text-2xl font-bold mb-4">
-                Printed Sports Balls
-              </h4>
-
-              <p className="text-slate-400 leading-7">
-                Client project completed during my internship at
-                <span className="text-white">
-                  {" "}V-Arts Services Pvt. Ltd.
-                </span>.
-                Worked on WordPress customization,
-                Elementor layouts, Fancy Product Designer,
-                custom CSS and responsive UI improvements.
-              </p>
-            </div>
-
-            {/* Project 3 */}
-            <div className="bg-slate-950 rounded-2xl border border-slate-800 p-8 hover:border-sky-400 transition-all duration-300 hover:-translate-y-2">
-              <div className="text-5xl mb-5">🎨</div>
-
-              <h4 className="text-2xl font-bold mb-4">
-                Personal Portfolio
-              </h4>
-
-              <p className="text-slate-400 leading-7">
-                A modern portfolio built using React,
-                Tailwind CSS and Framer Motion to
-                showcase my technical skills,
-                experience and projects.
-              </p>
-            </div>
-          </div>
+                <p className="mt-2 text-xs leading-5 text-slate-500 sm:text-sm">
+                  {item.label}
+                </p>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

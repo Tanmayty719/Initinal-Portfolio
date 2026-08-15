@@ -2,101 +2,177 @@ import { motion } from "framer-motion";
 import {
   FaGithub,
   FaExternalLinkAlt,
-  FaArrowRight,
 } from "react-icons/fa";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, index = 0 }) => {
+  const isClientProject = project.title === "Printed Sports Balls";
+  const isPortfolioProject = project.title === "Developer Portfolio";
+
   return (
-    <motion.div
-      whileHover={{ y: -8 }}
-      transition={{ duration: 0.3 }}
-      className="group relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 p-8 hover:border-sky-400 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] transition-all duration-300"
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-70px" }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.08,
+      }}
+      whileHover={{ y: -5 }}
+      className="
+        group
+        relative
+        overflow-hidden
+        rounded-3xl
+        border
+        border-white/[0.08]
+        bg-white/[0.025]
+        p-6
+        backdrop-blur-sm
+        transition-all
+        duration-300
+        hover:border-violet-400/25
+        hover:bg-white/[0.035]
+        sm:p-8
+      "
     >
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+      {/* Header */}
+      <div className="flex items-start justify-between gap-6">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-600">
+            {String(index + 2).padStart(2, "0")}
+          </p>
 
-      <div className="relative z-10">
-        {/* Header */}
-        <div className="flex justify-between items-start">
-          <div>
-            <span className="text-sky-400 text-sm font-medium">
-              {project.subtitle}
-            </span>
+          <p className="mt-5 text-sm font-medium text-violet-300">
+            {project.subtitle}
+          </p>
 
-            <h3 className="text-2xl font-bold mt-2">
-              {project.title}
-            </h3>
-          </div>
-
-          <div className="w-14 h-14 rounded-2xl bg-slate-800 flex items-center justify-center text-3xl group-hover:bg-sky-500 transition">
-            {project.title.includes("Portfolio") ? "🎨" : "💼"}
-          </div>
+          <h3 className="mt-2 text-2xl font-bold tracking-tight text-white">
+            {project.title}
+          </h3>
         </div>
 
-        {/* Description */}
-        <p className="text-slate-400 leading-7 mt-6">
-          {project.description}
-        </p>
+        <span
+          className="
+            flex
+            h-11
+            w-11
+            shrink-0
+            items-center
+            justify-center
+            rounded-xl
+            border
+            border-white/[0.08]
+            bg-white/[0.03]
+            text-xs
+            font-semibold
+            text-slate-500
+            transition
+            duration-300
+            group-hover:border-violet-400/30
+            group-hover:text-violet-300
+          "
+        >
+          {isClientProject ? "01" : isPortfolioProject ? "02" : "03"}
+        </span>
+      </div>
 
-        {/* Responsibilities */}
-        <div className="mt-8">
-          <h4 className="font-semibold mb-4">
+      {/* Client note */}
+      {isClientProject && (
+        <div className="mt-6 rounded-xl border border-amber-400/10 bg-amber-400/[0.03] px-4 py-3">
+          <p className="text-xs leading-5 text-amber-200/70">
+            Client project contribution completed during internship.
+            Project visuals are intentionally not displayed.
+          </p>
+        </div>
+      )}
+
+      {/* Description */}
+      <p className="mt-6 text-sm leading-7 text-slate-400">
+        {project.description}
+      </p>
+
+      {/* Highlights */}
+      {project.responsibilities?.length > 0 && (
+        <div className="mt-7">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-600">
             Highlights
-          </h4>
+          </p>
 
-          <div className="space-y-3">
-            {project.responsibilities.map((item) => (
+          <div className="mt-4 space-y-2.5">
+            {project.responsibilities.slice(0, 5).map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-3 text-slate-300"
+                className="flex items-start gap-3 text-sm text-slate-400"
               >
-                <FaArrowRight className="text-sky-400 text-sm" />
-                {item}
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400" />
+                <span>{item}</span>
               </div>
             ))}
           </div>
         </div>
+      )}
 
-        {/* Tech Stack */}
-        <div className="flex flex-wrap gap-3 mt-8">
+      {/* Technologies */}
+      {project.technologies?.length > 0 && (
+        <div className="mt-7 flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-2 rounded-full bg-slate-800 border border-slate-700 text-sm"
+              className="
+                rounded-lg
+                border
+                border-white/[0.08]
+                bg-white/[0.025]
+                px-2.5
+                py-1.5
+                text-xs
+                font-medium
+                text-slate-400
+              "
             >
               {tech}
             </span>
           ))}
         </div>
+      )}
 
-        {/* Buttons */}
-        <div className="flex gap-4 mt-10">
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 px-5 py-3 rounded-xl transition"
-            >
-              <FaGithub />
-              GitHub
-            </a>
-          )}
+      {/* Actions */}
+      <div className="mt-8 flex flex-wrap gap-3 border-t border-white/[0.07] pt-6">
+        {project.github && (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              inline-flex
+              items-center
+              gap-2
+              rounded-lg
+              border
+              border-white/[0.1]
+              bg-white/[0.025]
+              px-4
+              py-2.5
+              text-xs
+              font-semibold
+              text-slate-300
+              transition
+              hover:border-violet-400/30
+              hover:text-white
+            "
+          >
+            <FaGithub />
+            GitHub
+          </a>
+        )}
 
-          {project.live && (
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 border border-slate-700 hover:border-sky-400 px-5 py-3 rounded-xl transition"
-            >
-              <FaExternalLinkAlt />
-              Live
-            </a>
-          )}
-        </div>
+        
+
+        
+        
       </div>
-    </motion.div>
+    </motion.article>
   );
 };
 

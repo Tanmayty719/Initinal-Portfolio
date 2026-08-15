@@ -11,11 +11,12 @@ export const featuredProject = {
   featured: true,
 
   description:
-    "A full-stack online auction platform that enables users to create auctions, place real-time bids and securely manage listings. The application uses Socket.IO for live bidding, JWT Authentication for secure access, Cloudinary for image uploads and MongoDB for persistent data storage.",
+    "A full-stack online auction platform that enables users to create auctions, place real-time bids and securely manage listings. The application uses Socket.IO for live bidding, JWT authentication for secure access, Cloudinary for image uploads, and MongoDB for persistent data storage.",
 
   features: [
     "JWT Authentication",
-    "Real-time Bidding",
+    "Role-Based Access Control",
+    "Real-Time Bidding with Socket.IO",
     "Cloudinary Image Uploads",
     "Admin Dashboard",
     "Auction Management",
@@ -30,11 +31,12 @@ export const featuredProject = {
     "Socket.IO",
     "JWT",
     "Cloudinary",
+    "Redux Toolkit",
+    "React Query",
   ],
 
-  github: "https://github.com/Tanmayty719",
+  github: null,
 
-  // Replace with your deployed URL later
   live: "https://auction-centrall.netlify.app/",
 };
 
@@ -49,7 +51,7 @@ export const projects = [
     image: null,
 
     description:
-      "Contributed to a live client website during my internship at V-Arts Services Pvt. Ltd. Worked on WordPress customization, Elementor layouts, Fancy Product Designer integration, debugging, UI enhancements and responsive improvements.",
+      "Contributed to a live client website during my internship at V-Arts Services Pvt. Ltd., working on WordPress customization, Elementor layouts, Fancy Product Designer integration, debugging, UI enhancements and responsive improvements.",
 
     responsibilities: [
       "Customized WordPress pages",
@@ -58,7 +60,7 @@ export const projects = [
       "Responsive UI Improvements",
       "Custom CSS",
       "Debugging & Enhancements",
-      "Collaborated with Development Team",
+      "Client Requirement Implementation",
     ],
 
     technologies: [
@@ -71,7 +73,7 @@ export const projects = [
 
     github: null,
 
-    
+    live: "https://printedsportsballs.co.uk",
   },
 
   {
@@ -84,25 +86,26 @@ export const projects = [
     image: portfolioImg,
 
     description:
-      "A modern developer portfolio built using React, Tailwind CSS and Framer Motion to showcase technical skills, projects and professional experience through a clean, responsive and interactive interface.",
+      "A modern developer portfolio built with React, Tailwind CSS and Framer Motion to showcase projects, skills and professional experience through a responsive and interactive interface.",
 
     responsibilities: [
       "Responsive Design",
       "Reusable Components",
       "Modern UI/UX",
       "Framer Motion Animations",
-      "Dark Theme",
-      "Performance Optimization",
+      "SEO Optimization",
+      "Vercel Deployment",
     ],
 
     technologies: [
       "React",
       "Tailwind CSS",
       "Framer Motion",
+      "Vercel",
     ],
 
-    
+    github: "https://github.com/Tanmayty719/Initinal-Portfolio",
 
-    live: "",
+    live: "https://my-portfolio-tvk-one.vercel.app/",
   },
 ];

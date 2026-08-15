@@ -4,7 +4,6 @@ import {
   FaLinkedin,
   FaEnvelope,
   FaArrowUp,
-  FaHeart,
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -16,96 +15,192 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-slate-900 border-t border-slate-800 overflow-hidden">
+    <footer className="relative overflow-hidden border-t border-white/[0.07] bg-[#08090d]">
+      {/* Subtle background accents */}
 
-      {/* Background Glow */}
+      <div className="pointer-events-none absolute left-1/4 top-0 h-64 w-64 rounded-full bg-violet-500/[0.025] blur-[110px]" />
 
-      <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[500px] h-[500px] bg-sky-500/10 blur-[180px] rounded-full"></div>
+      <div className="pointer-events-none absolute right-1/4 bottom-0 h-64 w-64 rounded-full bg-cyan-400/[0.02] blur-[110px]" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-16">
-
+      <div className="relative mx-auto max-w-6xl px-6 py-12 lg:px-8">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center"
+          transition={{ duration: 0.5 }}
         >
+          {/* Top row */}
 
-          <h2 className="text-4xl font-bold">
-            Tanmay Kamtekar
-          </h2>
+          <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+            {/* Brand */}
 
-          <p className="text-sky-400 mt-3 text-lg">
-            Full Stack WEB Developer
-          </p>
+            <div className="flex items-center gap-4">
+              <button
+                type="button"
+                onClick={scrollTop}
+                aria-label="Back to top"
+                className="
+                  flex
+                  h-10
+                  w-10
+                  shrink-0
+                  items-center
+                  justify-center
+                  rounded-xl
+                  bg-gradient-to-br
+                  from-violet-500
+                  to-cyan-400
+                  text-xs
+                  font-black
+                  text-white
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:shadow-[0_0_20px_rgba(139,92,246,0.25)]
+                "
+              >
+                TK
+              </button>
 
-          <p className="text-slate-400 max-w-2xl mx-auto mt-6 leading-8">
-            Passionate about building modern,
-            scalable and user-focused web applications
-            with clean design and efficient code.
-          </p>
+              <div>
+                <p className="text-sm font-semibold text-white">
+                  Tanmay Kamtekar
+                </p>
 
-          {/* Social */}
+                <p className="mt-1 text-xs uppercase tracking-[0.18em] text-slate-600">
+                  Full Stack Developer
+                </p>
+              </div>
+            </div>
 
-          <div className="flex justify-center gap-6 mt-10">
+            {/* Social links */}
 
-            <a
-              href="https://github.com/Tanmayty719"
-              target="_blank"
-              rel="noreferrer"
-              className="w-14 h-14 rounded-full bg-slate-800 flex items-center justify-center text-2xl hover:bg-sky-500 transition"
-            >
-              <FaGithub />
-            </a>
+            <div className="flex items-center gap-2">
+              <a
+                href="https://github.com/Tanmayty719"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  rounded-xl
+                  border
+                  border-white/[0.08]
+                  bg-white/[0.025]
+                  text-slate-500
+                  transition-all
+                  duration-300
+                  hover:border-violet-400/30
+                  hover:bg-violet-500/[0.08]
+                  hover:text-white
+                "
+              >
+                <FaGithub />
+              </a>
 
-            <a
-              href="https://www.linkedin.com/in/tanmay-kamtekar-644996371/"
-              target="_blank"
-              rel="noreferrer"
-              className="w-14 h-14 rounded-full bg-slate-800 flex items-center justify-center text-2xl hover:bg-sky-500 transition"
-            >
-              <FaLinkedin />
-            </a>
+              <a
+                href="https://www.linkedin.com/in/tanmay-kamtekar-644996371/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  rounded-xl
+                  border
+                  border-white/[0.08]
+                  bg-white/[0.025]
+                  text-slate-500
+                  transition-all
+                  duration-300
+                  hover:border-cyan-400/30
+                  hover:bg-cyan-400/[0.08]
+                  hover:text-white
+                "
+              >
+                <FaLinkedin />
+              </a>
 
-            <a
-              href="mailto:YOUR_EMAIL@gmail.com"
-              className="w-14 h-14 rounded-full bg-slate-800 flex items-center justify-center text-2xl hover:bg-sky-500 transition"
-            >
-              <FaEnvelope />
-            </a>
-
+              <a
+                href="mailto:tkworkspace12@gmail.com"
+                aria-label="Email"
+                className="
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  rounded-xl
+                  border
+                  border-white/[0.08]
+                  bg-white/[0.025]
+                  text-slate-500
+                  transition-all
+                  duration-300
+                  hover:border-violet-400/30
+                  hover:bg-violet-500/[0.08]
+                  hover:text-white
+                "
+              >
+                <FaEnvelope />
+              </a>
+            </div>
           </div>
 
-          {/* Bottom */}
+          {/* Bottom row */}
 
-          <div className="border-t border-slate-800 mt-14 pt-10">
-
-            <p className="text-slate-500">
-              © {new Date().getFullYear()} Tanmay Kamtekar.
-              All Rights Reserved.
+          <div className="mt-10 flex flex-col gap-3 border-t border-white/[0.07] pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-xs text-slate-600">
+              © {new Date().getFullYear()} Tanmay Kamtekar. All rights
+              reserved.
             </p>
 
-            <p className="mt-3 text-slate-500 flex justify-center items-center gap-2">
-              Built with React, Tailwind CSS & Framer Motion
-
-              <FaHeart className="text-red-500" />
+            <p className="text-xs text-slate-700">
+              Built with React · Tailwind CSS · Framer Motion
             </p>
-
           </div>
-
         </motion.div>
-
       </div>
 
-      {/* Scroll Top */}
+      {/* Back to top */}
 
       <button
         onClick={scrollTop}
-        className="fixed bottom-8 right-8 bg-sky-500 hover:bg-sky-600 w-14 h-14 rounded-full shadow-xl flex items-center justify-center text-xl transition z-50"
+        aria-label="Back to top"
+        className="
+          fixed
+          bottom-6
+          right-6
+          z-40
+          flex
+          h-11
+          w-11
+          items-center
+          justify-center
+          rounded-xl
+          border
+          border-white/[0.08]
+          bg-[#11141b]/90
+          text-slate-400
+          shadow-xl
+          backdrop-blur-xl
+          transition-all
+          duration-300
+          hover:-translate-y-1
+          hover:border-violet-400/30
+          hover:bg-violet-500/10
+          hover:text-white
+        "
       >
-        <FaArrowUp />
+        <FaArrowUp className="text-sm" />
       </button>
-
     </footer>
   );
 };

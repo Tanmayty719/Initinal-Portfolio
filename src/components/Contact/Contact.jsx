@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import {
   FaEnvelope,
   FaGithub,
@@ -7,108 +6,266 @@ import {
   FaMapMarkerAlt,
   FaDownload,
 } from "react-icons/fa";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 import { contactInfo } from "../../data/contact";
 
 const icons = {
-  Email: <FaEnvelope />,
-  LinkedIn: <FaLinkedin />,
-  GitHub: <FaGithub />,
-  Location: <FaMapMarkerAlt />,
+  Email: FaEnvelope,
+  LinkedIn: FaLinkedin,
+  GitHub: FaGithub,
+  Location: FaMapMarkerAlt,
 };
 
 const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative py-28 bg-slate-950 overflow-hidden"
+      className="relative overflow-hidden bg-[#08090d] py-24 sm:py-28"
     >
-      {/* Background Glow */}
+      {/* Background accents */}
 
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-sky-500/10 blur-[180px] rounded-full"></div>
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-gradient-to-r from-violet-500/[0.06] via-cyan-400/[0.04] to-violet-500/[0.06] blur-[150px]" />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="pointer-events-none absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-violet-500/[0.04] blur-[130px]" />
 
-        {/* Heading */}
+      <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
+
+        {/* Main CTA */}
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.65 }}
+          className="border-y border-white/[0.07] py-16 sm:py-20"
         >
-          <span className="uppercase tracking-[0.35em] text-sky-400 text-sm">
-            Contact
-          </span>
+          {/* Label */}
 
-          <h2 className="text-5xl font-bold mt-5">
-            Let's Connect
+          <div className="mb-6 flex items-center gap-3">
+            <span className="h-px w-10 bg-gradient-to-r from-violet-400 to-cyan-400" />
+
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-300">
+              Contact
+            </span>
+          </div>
+
+          {/* Heading */}
+
+          <h2 className="max-w-4xl text-5xl font-bold leading-[1.02] tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
+            Let&apos;s build something
+            <span className="block bg-gradient-to-r from-white via-slate-200 to-slate-500 bg-clip-text text-transparent">
+              worth shipping.
+            </span>
           </h2>
 
-          <p className="max-w-3xl mx-auto mt-6 text-slate-400 text-lg leading-8">
-            I'm currently looking for Full Stack / MERN Developer Internship
-            opportunities. If you'd like to collaborate or discuss an
-            opportunity, I'd love to hear from you.
+          {/* Description */}
+
+          <p className="mt-7 max-w-2xl text-base leading-8 text-slate-400 sm:text-lg">
+            I&apos;m open to Full Stack, React, and Web Development
+            opportunities. Whether it&apos;s an internship, collaboration, or a
+            project idea, I&apos;d be happy to connect.
           </p>
+
+          {/* CTA buttons */}
+
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="mailto:tkworkspace12@gmail.com"
+              className="
+                inline-flex
+                w-full
+                items-center
+                justify-center
+                gap-2
+                rounded-xl
+                bg-gradient-to-r
+                from-violet-500
+                to-cyan-400
+                px-6
+                py-3.5
+                font-semibold
+                text-white
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:shadow-[0_14px_35px_rgba(139,92,246,0.25)]
+                active:scale-95
+                sm:w-auto
+              "
+            >
+              <FaEnvelope />
+              Email Me
+            </a>
+
+            <a
+              href="/TanmayKamtekarresume.pdf"
+              download="Tanmay_Kamtekar_Resume.pdf"
+              className="
+                inline-flex
+                w-full
+                items-center
+                justify-center
+                gap-2
+                rounded-xl
+                border
+                border-white/[0.1]
+                bg-white/[0.025]
+                px-6
+                py-3.5
+                font-semibold
+                text-white
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:border-violet-400/30
+                hover:bg-white/[0.05]
+                active:scale-95
+                sm:w-auto
+              "
+            >
+              <FaDownload />
+              Download Resume
+            </a>
+          </div>
         </motion.div>
 
-        {/* Cards */}
+        {/* Contact links */}
 
-        <div className="grid md:grid-cols-2 gap-8 mt-20">
+        <div className="grid gap-4 py-10 sm:grid-cols-2 lg:grid-cols-4">
+          {contactInfo.map((item, index) => {
+            const Icon = icons[item.title];
 
-          {contactInfo.map((item, index) => (
-            <motion.a
-              key={item.title}
-              href={item.link || "#"}
-              target={item.link?.startsWith("http") ? "_blank" : "_self"}
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: index * 0.1,
-              }}
-              viewport={{ once: true }}
-              whileHover={{
-                y: -8,
-              }}
-              className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-sky-400 transition duration-300 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)]"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-sky-500 flex items-center justify-center text-2xl">
-                {icons[item.title]}
-              </div>
+            if (!Icon) {
+              return null;
+            }
 
-              <h3 className="text-2xl font-semibold mt-6">
-                {item.title}
-              </h3>
+            const content = (
+              <>
+                <div
+                  className="
+                    flex
+                    h-10
+                    w-10
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-xl
+                    border
+                    border-white/[0.08]
+                    bg-white/[0.03]
+                    text-slate-400
+                    transition
+                    duration-300
+                    group-hover:border-violet-400/30
+                    group-hover:bg-violet-500/[0.08]
+                    group-hover:text-violet-300
+                  "
+                >
+                  <Icon className="text-sm" />
+                </div>
 
-              <p className="text-slate-400 mt-3 break-all">
-                {item.value}
-              </p>
-            </motion.a>
-          ))}
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-600">
+                    {item.title}
+                  </p>
 
+                  <p className="mt-2 break-words text-sm font-medium text-slate-300 transition group-hover:text-white">
+                    {item.value}
+                  </p>
+                </div>
+
+                {item.link && item.title !== "Email" && (
+                  <FaArrowUpRightFromSquare className="ml-auto shrink-0 text-xs text-slate-600 transition group-hover:text-slate-300" />
+                )}
+              </>
+            );
+
+            if (!item.link) {
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.4,
+                    delay: index * 0.06,
+                  }}
+                  className="
+                    group
+                    flex
+                    items-center
+                    gap-4
+                    rounded-2xl
+                    border
+                    border-white/[0.07]
+                    bg-white/[0.02]
+                    p-4
+                  "
+                >
+                  {content}
+                </motion.div>
+              );
+            }
+
+            return (
+              <motion.a
+                key={item.title}
+                href={item.link}
+                target={
+                  item.link.startsWith("http") ? "_blank" : undefined
+                }
+                rel={
+                  item.link.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.06,
+                }}
+                whileHover={{ y: -3 }}
+                className="
+                  group
+                  flex
+                  items-center
+                  gap-4
+                  rounded-2xl
+                  border
+                  border-white/[0.07]
+                  bg-white/[0.02]
+                  p-4
+                  transition-all
+                  duration-300
+                  hover:border-violet-400/20
+                  hover:bg-white/[0.035]
+                "
+              >
+                {content}
+              </motion.a>
+            );
+          })}
         </div>
 
-        {/* Resume Button */}
+        {/* Availability */}
 
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="flex justify-center mt-20"
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="flex items-center gap-3 border-t border-white/[0.07] pt-8"
         >
-          <a
-            href="/resume.pdf"
-            download
-            className="flex items-center gap-3 bg-sky-500 hover:bg-sky-600 transition px-8 py-4 rounded-xl font-semibold text-lg"
-          >
-            <FaDownload />
+          <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
 
-            Download Resume
-          </a>
+          <p className="text-sm text-slate-500">
+            Currently open to internship and entry-level opportunities.
+          </p>
         </motion.div>
-
       </div>
     </section>
   );
